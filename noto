@@ -11,18 +11,22 @@ if [ $# -eq 0 ]; then
 fi
 
 # Create the base directory if it doesn't exist
-NOTO_DIR="$HOME/Documents/noto"
+NOTO_BASE_DIR="$HOME/Documents/noto"
+mkdir -p "$NOTO_BASE_DIR"
+
+# Get current date for the subfolder
+DATE_FOLDER=$(date "+%Y_%m_%d")
+NOTO_DIR="$NOTO_BASE_DIR/$DATE_FOLDER"
 mkdir -p "$NOTO_DIR"
 
-# Get current date and time for the filename prefix
-# Format: YYYY_MM_DD_HHMMSS (using underscores instead of dashes)
-DATE_PREFIX=$(date "+%Y_%m_%d_%H%M%S")
+# Get current time for the filename prefix with underscores between hours, minutes, and seconds
+TIME_PREFIX=$(date "+%H_%M_%S")
 
 # Sanitize the note title (replace spaces with underscores, convert to lowercase, and remove special characters)
 NOTE_TITLE=$(echo "$*" | tr '[:upper:]' '[:lower:]' | tr ' ' '_' | tr -cd '[:alnum:]_-')
 
-# Create the filename with date prefix for chronological ordering
-FILENAME="${DATE_PREFIX}_${NOTE_TITLE}.md"
+# Create the filename with time prefix for chronological ordering
+FILENAME="${TIME_PREFIX}_${NOTE_TITLE}.md"
 FILEPATH="$NOTO_DIR/$FILENAME"
 
 # Create the note file with a title header (preserving original capitalization for the header)
@@ -34,7 +38,7 @@ echo "" >> "$FILEPATH"
 
 # Open VS Code with the noto directory and the new file
 if command -v code >/dev/null 2>&1; then
-  code "$NOTO_DIR" "$FILEPATH"
+  code "$NOTO_BASE_DIR" "$FILEPATH"
 else
   echo "Warning: VS Code command line tool not found."
   echo "Note created at: $FILEPATH"

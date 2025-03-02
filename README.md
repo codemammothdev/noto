@@ -10,6 +10,7 @@ Noto is a lightweight command-line tool for quickly creating and organizing mark
 - Works on macOS and Linux
 - Preserves original capitalization in note headers
 - Uses lowercase with underscores for consistent file naming
+- Organizes notes in daily subfolders for better management
 
 ## Installation
 
@@ -32,7 +33,7 @@ noto My Note Title
 ```
 
 This will:
-1. Create a new markdown file in `~/Documents/noto/` with the format `YYYY_MM_DD_HHMMSS_my_note_title.md`
+1. Create a new markdown file in a daily subfolder with the format `~/Documents/noto/YYYY_MM_DD/HH_MM_SS_my_note_title.md`
 2. Add a title header with original capitalization ("# My Note Title") and timestamp to the file
 3. Open the file in VS Code for editing
 
@@ -45,13 +46,15 @@ This will:
 
 ## File Structure
 
-Notes are saved in `~/Documents/noto/` with filenames that ensure chronological ordering:
+Notes are saved in daily subfolders within `~/Documents/noto/` with filenames that ensure chronological ordering:
 
 ```
 ~/Documents/noto/
-  ├── 2023_05_10_092045_meeting_notes.md
-  ├── 2023_05_10_143012_project_ideas.md
-  ├── 2023_05_11_083022_daily_tasks.md
+  ├── 2023_05_10/
+  │   ├── 09_20_45_meeting_notes.md
+  │   └── 14_30_12_project_ideas.md
+  ├── 2023_05_11/
+  │   └── 08_30_22_daily_tasks.md
   └── ...
 ```
 
@@ -59,6 +62,6 @@ Notes are saved in `~/Documents/noto/` with filenames that ensure chronological 
 
 You can modify the script to change:
 - The base directory for notes
-- The date format
+- The date and time formats
 - The template for new notes
 - The editor used to open notes 

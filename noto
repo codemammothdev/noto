@@ -19,8 +19,8 @@ DATE_FOLDER=$(date "+%Y_%m_%d")
 NOTO_DIR="$NOTO_BASE_DIR/$DATE_FOLDER"
 mkdir -p "$NOTO_DIR"
 
-# Get current time for the filename prefix with underscores between hours, minutes, and seconds
-TIME_PREFIX=$(date "+%H_%M_%S")
+# Get current time for the filename prefix without underscores between hours, minutes, and seconds
+TIME_PREFIX=$(date "+%H%M%S")
 
 # Sanitize the note title (replace spaces with underscores, convert to lowercase, and remove special characters)
 NOTE_TITLE=$(echo "$*" | tr '[:upper:]' '[:lower:]' | tr ' ' '_' | tr -cd '[:alnum:]_-')

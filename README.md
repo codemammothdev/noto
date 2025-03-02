@@ -33,7 +33,7 @@ noto My Note Title
 ```
 
 This will:
-1. Create a new markdown file in a daily subfolder with the format `~/Documents/noto/YYYY_MM_DD/HH_MM_SS_my_note_title.md`
+1. Create a new markdown file in a daily subfolder with the format `~/Documents/noto/YYYY_MM_DD/HHMMSS_my_note_title.md`
 2. Add a title header with original capitalization ("# My Note Title") and timestamp to the file
 3. Open the file in VS Code for editing
 
@@ -51,10 +51,10 @@ Notes are saved in daily subfolders within `~/Documents/noto/` with filenames th
 ```
 ~/Documents/noto/
   ├── 2023_05_10/
-  │   ├── 09_20_45_meeting_notes.md
-  │   └── 14_30_12_project_ideas.md
+  │   ├── 092045_meeting_notes.md
+  │   └── 143012_project_ideas.md
   ├── 2023_05_11/
-  │   └── 08_30_22_daily_tasks.md
+  │   └── 083022_daily_tasks.md
   └── ...
 ```
 

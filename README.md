@@ -14,17 +14,35 @@ Noto is a lightweight command-line tool for quickly creating and organizing mark
 
 ## Installation
 
-1. Clone this repository or download the `noto` script
+1. Clone this repository:
+   ```
+   git clone https://github.com/yourusername/noto.git
+   cd noto
+   ```
+
 2. Make the script executable (if not already):
    ```
-   chmod +x noto
+   chmod +x bin/noto
    ```
-3. Move the script to a directory in your PATH:
+
+3. Add the script to your PATH by either:
+   
+   a. Creating a symbolic link to a directory in your PATH:
    ```
-   sudo mv noto /usr/local/bin/
+   sudo ln -s "$(pwd)/bin/noto" /usr/local/bin/noto
    ```
    
-   Alternatively, you can add the script's directory to your PATH in your shell profile file.
+   b. Adding the bin directory to your PATH in your shell profile file:
+   ```
+   echo 'export PATH="$PATH:/path/to/noto/bin"' >> ~/.bashrc
+   # or for zsh
+   echo 'export PATH="$PATH:/path/to/noto/bin"' >> ~/.zshrc
+   ```
+   
+   c. Moving the script to a directory already in your PATH:
+   ```
+   sudo cp bin/noto /usr/local/bin/
+   ```
 
 ## Usage
 
@@ -46,6 +64,15 @@ This will:
 
 ## File Structure
 
+### Repository Structure
+```
+noto/
+  ├── bin/
+  │   └── noto       # The executable script
+  └── README.md      # This documentation
+```
+
+### Notes Structure
 Notes are saved in daily subfolders within `~/Documents/noto/` with filenames that ensure chronological ordering:
 
 ```

@@ -8,8 +8,8 @@ Noto is a lightweight command-line tool for quickly creating and organizing mark
 - Automatic timestamping for chronological organization
 - Automatic opening in VS Code for immediate editing
 - Works on macOS and Linux
-- Converts all note titles to lowercase
-- Uses underscores for consistent file naming
+- Preserves original capitalization in note headers
+- Uses lowercase with underscores for consistent file naming
 
 ## Installation
 
@@ -33,7 +33,7 @@ noto My Note Title
 
 This will:
 1. Create a new markdown file in `~/Documents/noto/` with the format `YYYY_MM_DD_HHMMSS_my_note_title.md`
-2. Add a title and timestamp to the file
+2. Add a title header with original capitalization ("# My Note Title") and timestamp to the file
 3. Open the file in VS Code for editing
 
 ## Requirements

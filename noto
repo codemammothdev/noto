@@ -25,8 +25,8 @@ NOTE_TITLE=$(echo "$*" | tr '[:upper:]' '[:lower:]' | tr ' ' '_' | tr -cd '[:aln
 FILENAME="${DATE_PREFIX}_${NOTE_TITLE}.md"
 FILEPATH="$NOTO_DIR/$FILENAME"
 
-# Create the note file with a title header (keeping original capitalization for the header)
-HEADER_TITLE=$(echo "$*" | tr '[:upper:]' '[:lower:]')
+# Create the note file with a title header (preserving original capitalization for the header)
+HEADER_TITLE="$*"
 echo "# ${HEADER_TITLE}" > "$FILEPATH"
 echo "" >> "$FILEPATH"
 echo "Created: $(date "+%Y-%m-%d %H:%M:%S")" >> "$FILEPATH"
